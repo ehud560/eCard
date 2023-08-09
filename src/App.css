@@ -1,0 +1,50 @@
+.App {
+  text-align: center;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Jost', sans-serif;
+  list-style: none;
+  text-decoration: none;
+  scroll-behavior: smooth;
+}
+
+.navbar-brand {
+
+  font-weight: 700;
+}
+
+.navbar-brand:hover {
+  color: aqua;
+  font-weight: 700;
+}
+
+.nav-link {
+
+  font-weight: 600;
+  padding: 10px 27px;
+}
+
+.nav-link:hover {
+  color: aqua;
+}
+
+
+footer {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row-reverse;
+  justify-content: center;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+
+
+
+footer .about:hover {
+  color: aqua;
+}
