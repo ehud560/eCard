@@ -1,5 +1,5 @@
 export default interface Card {
-    id?: number;
+    _id?: number;
     creatorId?: number | string;
     title: string;
     subtitle?: string;

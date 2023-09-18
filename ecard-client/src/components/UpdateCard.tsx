@@ -39,7 +39,7 @@ const UpdateCard: FunctionComponent<UpdateCardProps> = ({ onHide, render, userIn
         },
         validationSchema: yup.object({
             title: yup.string().required().min(2), subtitle: yup.string().required().min(2), description: yup.string().required().min(20),
-            phone: yup.string().required().min(2), email: yup.string().required().email(), web: yup.string().min(10), image_url: yup.string().min(2), image_alt: yup.string().min(2), country: yup.string().required().min(2), state: yup.string().min(2), city: yup.string().required().min(2), street: yup.string().required().min(2), housenumber: yup.string().required().min(2), zip: yup.string().min(2),
+            phone: yup.string().required().min(2), email: yup.string().required().email(), web: yup.string().min(10), image_url: yup.string().min(2), image_alt: yup.string().min(2), country: yup.string().required().min(2), state: yup.string().min(2), city: yup.string().required().min(2), street: yup.string().required().min(2), housenumber: yup.string().required().min(2), zip: yup.string().min(2), creatorId: yup.string().min(2)
         }),
         enableReinitialize: true,
         onSubmit(values: Card) {

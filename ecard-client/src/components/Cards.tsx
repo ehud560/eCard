@@ -35,7 +35,7 @@ const Cards: FunctionComponent<CardsProps> = ({ setUserInfo, userInfo }) => {
                 Cards
             </h1>
             <div className="text-end mb-2">
-                {(userInfo.business || userInfo.isAdmin) && (
+                {(userInfo.buisness || userInfo.isAdmin) && (
                     <Link
                         to=""
                         className="btn btn-primary rounded-circle position-fixed top-50 end-0 mb-5 mx-5"
@@ -50,7 +50,7 @@ const Cards: FunctionComponent<CardsProps> = ({ setUserInfo, userInfo }) => {
                     <div className="row">
                         {cards.map((card: Card) => (
                             <div
-                                key={card.id}
+                                key={card._id}
                                 className="card col-md-4 mx-2 mt-6 "
                                 style={{ width: "18rem" }}  >
                                 <div className="cardImgDiv mt-2 ">
@@ -60,7 +60,7 @@ const Cards: FunctionComponent<CardsProps> = ({ setUserInfo, userInfo }) => {
                                         alt={card.image_alt}
                                         style={{ width: "16.5rem", height: "16.5rem" }}
                                         onClick={() => {
-                                            setCardId(card.id as number);
+                                            setCardId(card._id as number);
                                             setCardTitle(card.title);
 
                                         }}
@@ -82,7 +82,7 @@ const Cards: FunctionComponent<CardsProps> = ({ setUserInfo, userInfo }) => {
                                                             to=""
                                                             className="btn col"
                                                             onClick={() => {
-                                                                setCardId(card.id as number);
+                                                                setCardId(card._id as number);
                                                                 setCardTitle(card.title);
                                                                 setOpenDeleteCardModal(true);
                                                             }}
@@ -93,7 +93,7 @@ const Cards: FunctionComponent<CardsProps> = ({ setUserInfo, userInfo }) => {
                                                             to=""
                                                             className="btn col"
                                                             onClick={() => {
-                                                                setCardId(card.id as number);
+                                                                setCardId(card._id as number);
                                                                 setCardTitle(card.title);
                                                                 setOpenUpdateCardModal(true);
                                                             }}

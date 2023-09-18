@@ -7,14 +7,14 @@ const jwt = require("jsonwebtoken");
 const router = express.Router();
 
 const registerSchema = joi.object({
-    firstName: joi.string().required().min(2),
-    middleName: joi.string().min(2),
-    lastName: joi.string().required().min(2),
-    phone: joi.string().required().min(2),
+    firstName: joi.string().required().min(1),
+    middleName: joi.string().min(0),
+    lastName: joi.string().required().min(1),
+    phone: joi.string().required().min(10),
     email: joi.string().required().email(),
     password: joi.string().required().min(8),
-    image_url: joi.string().min(1),
-    image_alt: joi.string().min(1),
+    image_url: joi.string().min(0),
+    image_alt: joi.string().min(0),
     state: joi.string().required().min(1),
     country: joi.string().required().min(1),
     city: joi.string().required().min(1),
@@ -22,7 +22,7 @@ const registerSchema = joi.object({
     housenumber: joi.string().required().min(1),
     zip: joi.string().required().min(1),
     isAdmin: joi.boolean(),
-    buisness: joi.boolean().required(),
+    buisness: joi.boolean(),
 });
 
 router.post("/", async (req, res) => {

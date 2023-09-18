@@ -8,17 +8,17 @@ const cardSchema = new mongoose.Schema({
     },
     subtitle: {
         type: String,
-        required: true,
-        minlength: 2
+        required: false,
+        minlength: 0
     },
     description: {
         type: String,
-        required: true,
-        minlength: 2
+        required: false,
+        minlength: 0
     },
     phone: {
         type: String,
-        required: true,
+        required: false,
         minlength: 10
     },
     email: {
@@ -28,48 +28,48 @@ const cardSchema = new mongoose.Schema({
     },
     web: {
         type: String,
-        required: true,
-        minlength: 8
+        required: false,
+        minlength: 0
     },
     image_url: {
         type: String,
-        required: true,
-        minlength: 2,
+        required: false,
+        minlength: 0,
     },
     image_alt: {
         type: String,
-        required: true,
-        minlength: 2,
+        required: false,
+        minlength: 0,
     },
     state: {
         type: String,
         required: true,
-        minlength: 2,
+        minlength: 0,
     },
     country: {
         type: String,
         required: true,
-        minlength: 2,
+        minlength: 0,
     },
     city: {
         type: String,
         required: true,
-        minlength: 2,
+        minlength: 0,
     },
     street: {
         type: String,
         required: true,
-        minlength: 2,
+        minlength: 0,
     },
     housenumber: {
         type: String,
         required: true,
-        minlength: 2,
+        minlength: 0,
     },
     zip: {
         type: String,
         required: true,
-        minlength: 2,
+        minlength: 0,
     },
 })
 

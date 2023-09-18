@@ -2,7 +2,7 @@ import { useFormik } from "formik";
 import { FunctionComponent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
-import { addUser } from "../services/usersServices";
+import { addUser, getTokenDetails } from "../services/usersServices";
 import { successMsg } from "../services/feedbacksServices";
 
 interface RegisterProps {
@@ -31,10 +31,10 @@ const Register: FunctionComponent<RegisterProps> = ({ setUserInfo }) => {
             isAdmin: false
         },
         validationSchema: yup.object({
-            firstName: yup.string().required().min(2),
-            middleName: yup.string().min(2),
-            lastName: yup.string().required().min(2),
-            phone: yup.string().required().min(2),
+            firstName: yup.string().required().min(1),
+            middleName: yup.string().min(0),
+            lastName: yup.string().required().min(1),
+            phone: yup.string().required().min(10),
             email: yup.string().required().email(),
             password: yup.string().required().min(8),
             image_url: yup.string().min(1),
@@ -52,12 +52,13 @@ const Register: FunctionComponent<RegisterProps> = ({ setUserInfo }) => {
             addUser({ ...values, isAdmin: false })
                 .then((res) => {
                     navigate("/home");
+                    sessionStorage.setItem("token", JSON.stringify({ token: res.data }))
                     sessionStorage.setItem(
                         "userInfo",
                         JSON.stringify({
-                            email: res.data.email,
-                            isAdmin: res.data.isAdmin,
-                            userId: res.data.id,
+                            email: (getTokenDetails() as any).email,
+                            isAdmin: (getTokenDetails() as any).isAdmin,
+                            userId: (getTokenDetails() as any).userId,
                         })
                     );
                     setUserInfo(JSON.parse(sessionStorage.getItem("userInfo") as string));
@@ -123,7 +124,7 @@ const Register: FunctionComponent<RegisterProps> = ({ setUserInfo }) => {
                             </div>
                             <div className="form-floating mb-3">
                                 <input
-                                    type="number"
+                                    type="text"
                                     className="form-control"
                                     id="phone"
                                     placeholder=""
@@ -269,7 +270,7 @@ const Register: FunctionComponent<RegisterProps> = ({ setUserInfo }) => {
                             </div>
                             <div className="form-floating mb-3">
                                 <input
-                                    type="number"
+                                    type="text"
                                     className="form-control"
                                     id="floatingHousenumber"
                                     placeholder="Housenumber"
@@ -285,7 +286,7 @@ const Register: FunctionComponent<RegisterProps> = ({ setUserInfo }) => {
                             </div>
                             <div className="form-floating mb-3">
                                 <input
-                                    type="number"
+                                    type="text"
                                     className="form-control"
                                     id="floatingZip"
                                     placeholder="Zip"

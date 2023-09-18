@@ -13,8 +13,8 @@ export function getCards() {
     });
 }
 
-export function getCardById(id: number) {
-    return axios.get(`${api}/${id}`, {
+export function getCardById(_id: number) {
+    return axios.get(`${api}/${_id}`, {
         headers: {
             Authorization: JSON.parse(sessionStorage.getItem("token") as string)
                 .token,
@@ -35,8 +35,8 @@ export function addCard(newCard: Card) {
     });
 }
 
-export function updateCard(updatedCard: Card, id: number) {
-    return axios.put(`${api}/${id}`, updatedCard, {
+export function updateCard(updatedCard: Card, _id: number) {
+    return axios.put(`${api}/${_id}`, updatedCard, {
         headers: {
             Authorization: JSON.parse(sessionStorage.getItem("token") as string)
                 .token,
@@ -44,11 +44,6 @@ export function updateCard(updatedCard: Card, id: number) {
     });
 }
 
-export function deleteCard(id: number) {
-    return axios.delete(`${api}/${id}`, {
-        headers: {
-            Authorization: JSON.parse(sessionStorage.getItem("token") as string)
-                .token,
-        },
-    });
+export function deleteCard(_id: string) {
+    return axios.delete(`${api}/${_id}`, { headers: { Authorization: JSON.parse(sessionStorage.getItem("token") as string).token } });
 }

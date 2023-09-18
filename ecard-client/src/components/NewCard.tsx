@@ -18,8 +18,21 @@ const NewCard: FunctionComponent<NewCardProps> = ({ onHide, render, userInfo }) 
             title: "", subtitle: "", description: "", phone: "", email: "", web: "", image_url: "", image_alt: "", country: "", state: "", city: "", street: "", housenumber: "", zip: "", creatorId: `${userInfo.email}`
         },
         validationSchema: yup.object({
-            title: yup.string().required().min(2), subtitle: yup.string().required().min(2), description: yup.string().required().min(20),
-            phone: yup.string().required().min(2), email: yup.string().required().email(), web: yup.string().min(10), image_url: yup.string().min(2), image_alt: yup.string().min(2), country: yup.string().required().min(2), state: yup.string().min(2), city: yup.string().required().min(2), street: yup.string().required().min(2), housenumber: yup.string().required().min(2), zip: yup.string().min(2)
+            title: yup.string().required().min(2),
+            subtitle: yup.string().min(0),
+            description: yup.string().required().min(0),
+            phone: yup.string().required().min(10),
+            email: yup.string().required().email(),
+            web: yup.string().min(0),
+            image_url: yup.string().min(0),
+            image_alt: yup.string().min(0),
+            state: yup.string().required().min(0),
+            country: yup.string().required().min(0),
+            city: yup.string().required().min(0),
+            street: yup.string().required().min(0),
+            housenumber: yup.string().required().min(0),
+            zip: yup.string().required().min(0),
+            creatorId: yup.string().min(2)
         }),
         onSubmit(values: Card) {
             addCard(values)

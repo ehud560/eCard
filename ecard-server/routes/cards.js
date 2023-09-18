@@ -7,19 +7,20 @@ const router = express.Router();
 
 const cardSchema = joi.object({
     title: joi.string().required().min(2),
-    subtitle: joi.string().min(2),
-    description: joi.string().required().min(2),
-    phone: joi.string().required().min(2),
+    subtitle: joi.string().min(0),
+    description: joi.string().required().min(0),
+    phone: joi.string().required().min(10),
     email: joi.string().required().email(),
-    web: joi.string().required().min(8),
-    image_url: joi.string().min(1),
-    image_alt: joi.string().min(1),
-    state: joi.string().required().min(1),
-    country: joi.string().required().min(1),
-    city: joi.string().required().min(1),
-    street: joi.string().required().min(1),
-    housenumber: joi.string().required().min(1),
-    zip: joi.string().required().min(1),
+    web: joi.string().min(0),
+    image_url: joi.string().min(0),
+    image_alt: joi.string().min(0),
+    state: joi.string().required().min(0),
+    country: joi.string().required().min(0),
+    city: joi.string().required().min(0),
+    street: joi.string().required().min(0),
+    housenumber: joi.string().required().min(0),
+    zip: joi.string().required().min(0),
+    creatorId: joi.string().min(2)
 });
 
 router.post("/", auth, async (req, res) => {

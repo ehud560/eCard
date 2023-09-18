@@ -7,7 +7,7 @@ import { SiteTheme } from "../App";
 interface DeleteCardModalProps {
     show: boolean;
     onHide: Function;
-    cardId: number;
+    cardId: any;
     render: Function;
     cardTitle: string;
 }

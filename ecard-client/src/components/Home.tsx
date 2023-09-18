@@ -1,6 +1,4 @@
 import { FunctionComponent, useState } from "react";
-import Navbar from "./Navbar";
-import { userInfo } from "os";
 import Cards from "./Cards";
 
 interface HomeProps {
